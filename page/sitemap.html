@@ -5,6 +5,7 @@
     <title>个人博客</title>
     <link rel="stylesheet" href="./css/sitemap.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.js"></script>
     <script src="./js/axios.js"></script>
 </head>
 <body>
@@ -24,7 +25,7 @@
                         <span class="icon4"></span>
                         {{blog.views}}
                     </div>
-                    <div>{{blog.ctime}}</div> 
+                    <div>{{blog.ctime}} {{ moment().calendar() }}</div> 
                 </div>
             </li>
         </ul>
