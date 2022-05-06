@@ -83,7 +83,7 @@
         </div>
         <div class="right_moodule" id="new_comments">
             <div>最新评论</div>
-            <ul>
+            <ul v-if="commentList.length > 0">
                 <li v-for="comment in commentList">
                     <div>
                         <span>{{comment.name}}</span>
@@ -92,6 +92,7 @@
                     <p>{{comment.comment}}</p>
                 </li>
             </ul>
+            <img v-else src="./img/empty.png" class="empty">
         </div>
         <!-- <div class="right_moodule">
             <div>友情链接</div>

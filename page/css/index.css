@@ -55,6 +55,14 @@
     background-size: cover;
     margin-right: 6px;
 }
+.icon6{
+    display: inline-block;
+    background: url('../img/icon6.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
 .blogger{
     width: 36px;
     margin-right: 10px;

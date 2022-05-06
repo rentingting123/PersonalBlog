@@ -17,9 +17,9 @@
 .link {
     border: 1px solid #eeeeee;
     padding: 10px;
-    width: 95%;
+    width: 75%;
     margin: 0px auto;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .link > a {
@@ -29,10 +29,10 @@
 
 .blog_list {
     border: 1px solid #eeeeee;
-    width: 95%;
+    width: 75%;
     padding: 10px;
     margin: 10px auto;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: 600;
 }
 
@@ -50,12 +50,50 @@
 
 .blog_list li {
     list-style: none;
-    margin-top: 5px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(234, 111, 90,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .blog_list a {
-    /*text-decoration: none;*/
+    text-decoration: none;
     color: black;
     cursor: pointer;
     font-weight: 400;
+    font-size: 20px;
+    
+}
+.icon4{
+    display: inline-block;
+    background: url('../img/icon4.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon5{
+    display: inline-block;
+    background: url('../img/icon5.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.sitemap_foot {
+    color: #9999;
+    /* width: 100%; */
+    padding: 5px 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 30px; */
+    padding-right: 20px;
 }

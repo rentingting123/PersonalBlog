@@ -1,7 +1,7 @@
 var randomTags = new Vue({
     el: "#random_tags",
     data: {
-        tags: ['楚辞','写雪','柳树','梅花','爱国','离别']
+        tags: []
     }, 
     computed: {
         randomColor: ()=> {
@@ -20,17 +20,17 @@ var randomTags = new Vue({
         }
     },
     created:  ()=> {
-        // axios({
-        //     method: "get",
-        //     url: "/queryRandomTags"
-        // }).then( (resp)=> {
-        //     var result = [];
-        //     for (var i = 0 ; i < resp.data.data.length ; i ++) {
-        //         result.push({text:resp.data.data[i].tag, link:"/?tag=" + resp.data.data[i].tag});
-        //     }
-        //     randomTags.tags = result;
-        //     console.log(randomTags.tags,8888)
-        // });
+        axios({
+            method: "get",
+            url: "/queryRandomTags"
+        }).then( (resp)=> {
+            var result = [];
+            for (var i = 0 ; i < resp.data.data.length ; i ++) {
+                result.push({text:resp.data.data[i].tag, link:"/?tag=" + resp.data.data[i].tag});
+            }
+            randomTags.tags = result;
+            console.log(randomTags.tags,8888)
+        });
     }
 });
 

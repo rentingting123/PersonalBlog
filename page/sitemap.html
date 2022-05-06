@@ -13,7 +13,20 @@
     <div class="blog_list" id="blog_list">
         <span>最新文章</span>
         <ul>
-            <li v-for="blog in blogList"><a v-bind:href="blog.link">{{blog.title}}</a></li>
+            <li v-for="blog in blogList">
+                <a v-bind:href="blog.link">
+                {{blog.title}}</a>
+                <div class="sitemap_foot">
+                    <div class="box"> 
+                        <span class="icon5"></span>{{blog.tags}}
+                    </div>
+                    <div class="box"> 
+                        <span class="icon4"></span>
+                        {{blog.views}}
+                    </div>
+                    <div>{{blog.ctime}}</div> 
+                </div>
+            </li>
         </ul>
     </div>
     <script src="./js/sitemap.js"></script>

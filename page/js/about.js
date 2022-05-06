@@ -44,20 +44,20 @@ var sendComment = new Vue({
         rightCode: ""
     },
     computed: {
-        changeCode: ()=> {
-            return ()=> {
+        changeCode: function() {
+            return function() {
                 axios({
                     method: "get",
                     url: "/queryRandomCode"
-                }).then( (resp)=> {
+                }).then( function(resp) {
                     console.log(resp);
                     sendComment.vcode = resp.data.data.data;
                     sendComment.rightCode = resp.data.data.text;
                 });
             }
         },
-        sendComment: ()=> {
-            return ()=> {
+        sendComment: function() {
+            return function() {
                 var code = document.getElementById("comment_code").value;
                 if (code != sendComment.rightCode) {
                     alert("验证码有误");
@@ -78,7 +78,7 @@ var sendComment = new Vue({
             }
         }
     },
-    created: ()=> {
+    created: function(){
         this.changeCode();
     }
 });

@@ -3,19 +3,26 @@
     width: 96%;
     border-radius: 5px;
     padding: 10px 15px;
-    box-shadow: 3px 4px 3px #888888;
+    box-shadow: 3px 4px 3px rgba(234, 111, 90,.1);
     text-align: left;
 }
 
 .blog_title {
     font-size: 24px;
     font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    padding-top: 20px;
 }
 
 .blog_msg {
+    display: flex;
+    align-items: center;
+    color: #999;
+    justify-content: flex-end;
     padding-top: 10px;
     padding-bottom: 20px;
-    border-bottom: 1px  solid gray;
+    border-bottom: 1px solid rgba(234, 111, 90,.2);
     margin-bottom: 20px;
 }
 .blog_content {
@@ -23,6 +30,29 @@
     word-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 30px; */
+    padding-right: 20px;
+}
+.icon4{
+    display: inline-block;
+    background: url('../img/icon4.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon5{
+    display: inline-block;
+    background: url('../img/icon5.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
 }
 .send_comment {
     background: #f5f5f5;
@@ -55,9 +85,10 @@
     font-size: 14px;
     border-radius: 5px;
 }
-.send_comment input:focus,.send_comment textarea:focus{
+.send_comment input:focus,.send_comment textarea:focus,.send_comment button:focus{
     border: 1px solid rgba(234, 111, 90,1);
     outline: none;
+    
 }
 .send_comment button {
     width: 100px;

@@ -44,8 +44,8 @@ var sendComment = new Vue({
         rightCode: ""
     },
     computed: {
-        changeCode: ()=> {
-            return ()=> {
+        changeCode: function() {
+            return function() {
                 axios({
                     method: "get",
                     url: "/queryRandomCode"
@@ -78,7 +78,7 @@ var sendComment = new Vue({
             }
         }
     },
-    created: ()=> {
+    created: function() {
         this.changeCode();
     }
 });
