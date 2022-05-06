@@ -11,7 +11,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="/" class="title">我的个人博客 | 古诗文博客</a>
+            <a href="/" class="title">
+                <img src="./img/social-blogger.png" alt="" class="blogger">
+                我的个人博客 | 古诗文博客</a>
             <ul class="menu">
                 <li><a href="/">首页</a></li>
                 <li><a href="/sitemap.html">古诗</a></li>
@@ -27,7 +29,7 @@
     <div class="content">
         <div class="content_left">
             <div class="every_day" id="every_day">
-                <span>每日一句 <span class="laba"></span></span>
+                <span> <span class="laba"></span>每日一句</span>
                 <p v-html="content"></p>
                 <!-- <p v-html="getContent"></p> -->
             </div>
@@ -35,7 +37,16 @@
                 <div class="article" v-for="article in articleList">
                     <a v-bind:href="article.link" class="article_title">{{article.title}}</a>
                     <p class="article_content" v-html="article.content.replace(/\n/g, '<br/>')"></p>
-                    <div class="article_foot">发布于{{article.date}} |  浏览({{article.views}}) | 标签：{{article.tags}}</div>
+                    <div class="article_foot">
+                        <div class="box"> 
+                            <span class="icon5"></span>{{article.tags}}
+                        </div>
+                        <div class="box"> 
+                            <span class="icon4"></span>
+                            {{article.views}}
+                        </div>
+                        <div>{{article.date}}</div> 
+                    </div>
                 </div>
                 <div class="page_tool">
                     <ul>
@@ -46,12 +57,11 @@
         </div>
         <div class="content_right">
             <div class="right_moodule" id="random_tags">
-                <div>随机标签云</div>
-                <!-- {{tags}} -->
+                <div><span class="icon1"></span>随机标签云</div>
                 <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag}}</a>
             </div>
             <div class="right_moodule" id="new_hot">
-                <div>最近热门</div>
+                <div><span class="icon2"></span>最近热门</div>
                 <ul>
                     <li v-for="temp in titleList">
                         <a v-bind:href="temp.link">{{temp.title}}</a>
@@ -59,7 +69,7 @@
                 </ul>
             </div>
             <div class="right_moodule" id="new_comments">
-                <div>最新评论</div>
+                <div><span class="icon3"></span>最新评论</div>
                 <ul>
                     <li v-for="comment in commentList">
                         <div>

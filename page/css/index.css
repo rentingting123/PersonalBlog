@@ -10,15 +10,61 @@
 .laba {
     display: inline-block;
     background: url('../img/lb.png') no-repeat center center;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     background-size: cover;
+    margin-right: 6px;
 }
-
+.icon1{
+    display: inline-block;
+    background: url('../img/icon1.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon2{
+    display: inline-block;
+    background: url('../img/icon2.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon3{
+    display: inline-block;
+    background: url('../img/icon3.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon4{
+    display: inline-block;
+    background: url('../img/icon4.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.icon5{
+    display: inline-block;
+    background: url('../img/icon5.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.blogger{
+    width: 36px;
+    margin-right: 10px;
+}
 .every_day > span {
     display: block;
-    font-size: 12px;
+    font-size: 20px;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
     color: slateblue;
     background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
     -webkit-background-clip: text;
@@ -78,8 +124,18 @@
 
 .article_foot {
     color: #9999;
-    /* background: rgba(234, 114, 93,.2); */
-    width: 100%;
+    background: rgba(234, 114, 93,.1);
+    /* width: 100%; */
     padding: 5px 15px;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 30px; */
+    padding-right: 20px;
 }

@@ -37,6 +37,9 @@ body {
     text-decoration: none;
     margin: 0px 15px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu {
