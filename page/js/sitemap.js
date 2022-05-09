@@ -3,7 +3,6 @@ var blogList = new Vue({
     el: "#blog_list",
     data: {
         blogList: [],
-        moment
     },
     computed: {
 
@@ -22,7 +21,7 @@ var blogList = new Vue({
             //         ...item,
             //         ctime: moment(item.ctime).format("YYYY-MM-DD HH:mm:ss")
             //     }
-            //     console.log(res,item.ctime,66);
+            //     console.log(res,item.ctime,66,88888);
             //     return res
             // });
             // console.log(blogList.blogList)

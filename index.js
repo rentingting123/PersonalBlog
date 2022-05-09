@@ -4,6 +4,7 @@ var loader = require("./loader");
 
 var app = new express();
 
+
 app.use(express.static("./page/"));// 设置静态文件的位置
 
 app.post("/editEveryDay", loader.get("/editEveryDay"));

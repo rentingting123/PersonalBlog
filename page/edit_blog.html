@@ -33,11 +33,7 @@
           $.ajax({
               url: "/editBlog?title=" + title + "&tags=" + tags,
               method: "post",
-              data: {
-                title,
-                content,
-                tags
-              },
+              data: content,
               success: function(resp) {
                   var result = JSON.parse(resp);
                   alert(result.msg);
