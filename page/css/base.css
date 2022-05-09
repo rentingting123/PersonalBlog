@@ -241,27 +241,31 @@ body {
     margin-top: 20px;
     display: inline-block;
 }
-
+.page_tool > ul{
+    border: 1px solid rgba(234, 111, 90,1);
+    border-radius: 4px;
+    height: 30px;
+}
 .page_tool > ul > li {
     display: inline-block;
     list-style: none;
     width: 40px;
-    height: 30px;
-    background: pink;
+    background: rgba(234, 111, 90,.2);
     line-height: 30px;
-    background: white;
     text-align: center;
-    border: 1px solid black;
     float: left;
     cursor: pointer;
+    margin-right: -1px;
+    color: #333;
+   
 }
 
 .page_tool > ul > li:hover {
-    background: gray;
+    background: rgba(234, 111, 90,.5);
 }
 
 .now_page {
-    background: #333 !important;
+    background: rgba(234, 111, 90,.7) !important;
     color: #fff !important;
 }
 
@@ -277,6 +281,7 @@ body {
     }
     }
 .empty{
+    width: 200px;
     display: block;
     margin: 10px auto;
 }

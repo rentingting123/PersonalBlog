@@ -1,5 +1,5 @@
 var dbutil = require("./DBUtil");
-
+// 插入文章
 function insertBlog(title, content, tags, views, ctime, utime, success) {
     var insertSql = "insert into blog (`title`, `content`, `tags`, `views`, `ctime`, `utime`) values (?, ?, ?, ?, ?, ?)";
     var params = [title, content, tags, views, ctime, ctime];
@@ -15,7 +15,7 @@ function insertBlog(title, content, tags, views, ctime, utime, success) {
     });
     connection.end();
 }
-
+// 查询文章分页
 function queryBlogByPage(page, pageSize, success) {
     var insertSql = "select * from blog order by id desc limit ?, ?;";
     var params = [page * pageSize, pageSize];
@@ -31,7 +31,7 @@ function queryBlogByPage(page, pageSize, success) {
     });
     connection.end();
 }
-
+// 查询文章数量
 function queryBlogCount(success) {
     var querySql = "select count(1) as count from blog;";
     var params = [];
@@ -47,7 +47,7 @@ function queryBlogCount(success) {
     });
     connection.end();
 }
-
+// 查询文章详情
 function queryBlogById(id, success) {
     var querySql = "select * from blog where id = ?;";
     var params = [id];
@@ -63,7 +63,7 @@ function queryBlogById(id, success) {
     });
     connection.end();
 }
-
+// 查询全部文章
 function queryAllBlog(success) {
     var querySql = "select * from blog order by id desc;";
     var params = [];
@@ -95,7 +95,7 @@ function addViews(id, success) {
     });
     connection.end();
 }
-
+// 查询热门文章
 function queryHotBlog(size, success) {
     var querySql = "select * from blog order by views desc limit ?;";
     var params = [size];

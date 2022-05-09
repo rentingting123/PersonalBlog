@@ -20,15 +20,28 @@
           var content = $("#editor").html();
           var title = $("#title").val();
           var tags = $("#tags").val();
-
+        if(title === ''){
+          alert('标题不能为空')
+          return false
+        }else  if(tags === ''){
+          alert('标签不能为空')
+          return false
+        }else if(content === ''){
+          alert('文章内容不能为空')
+          return false
+        }
           $.ajax({
-              url: "/editBlog?title=" + title + "&tags=" + tags,
+              url: "/editBlog?",
               method: "post",
-              data: content,
+              data: {
+                title,
+                content,
+                tags
+              },
               success: function(resp) {
                   var result = JSON.parse(resp);
                   alert(result.msg);
-                  $("#editor").html("请输入文章内容&hellip;");
+                  $("#editor").html("");
               },
               error: function (resp) {
                   console.log(resp);
@@ -42,6 +55,15 @@
         color: rgba(234, 111, 90,1);
         margin-top: 60px;
         margin-bottom: 30px;
+      }
+      .labelipt{
+        display: inline-block;
+        /* width: 120px; */
+        font-size: 18px;
+        margin-right: 20px;
+      }
+      .iptbox{
+        margin-bottom: 20px;
       }
       .submitBtn {
         width: 200px;
@@ -78,9 +100,17 @@
   <body>
   <div class="container">
       <h1 class="title">文章编辑</h1>
-    <input type="text" placeholder="请输入标题" id="title" class="ipt">
-    <input type="text" placeholder="请输入标签，用逗号隔开" id="tags" class="ipt">
-      <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="iptbox">
+        <span class="labelipt">标题:</span>
+        <input type="text" placeholder="请输入标题" id="title" class="ipt">
+      </div>
+      <div class="iptbox">
+        <span class="labelipt">标签:</span>
+        <input type="text" placeholder="请输入标签，用逗号隔开" id="tags" class="ipt">
+      </div>
+      <div>
+        <span class="labelipt">文章内容:</span>
+        <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
         <div class="btn-group">
           <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -132,11 +162,9 @@
         </div>
         <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
       </div>
-
-      <div id="editor">
-        请输入文章内容&hellip;
+      <div id="editor"></div>
       </div>
-    <button onclick="submit()" class="submitBtn">提交</button>
+      <button onclick="submit()" class="submitBtn">提交</button>
   </div>
   <script>
     $(function(){

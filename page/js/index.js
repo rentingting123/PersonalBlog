@@ -9,7 +9,7 @@ var everyDay = new Vue({
             return this.content;
         }
     },
-    created: ()=> {
+    created: function() {
         axios({
             method: "get",
             url: "/queryEveryDay"
@@ -137,14 +137,13 @@ var articleList = new Vue({
         ]
     },
     computed: {
-        jumpTo: ()=> {
+        jumpTo: function() {
             return  function (page) {
                 this.getPage(page, this.pageSize);
             }
         },
         getPage: function () {
-            console.log(222)
-            return  (page, pageSize)=> {
+            return  function(page, pageSize) {
                 var searcheUrlParams = location.search.indexOf("?") > -1 ? location.search.split("?")[1].split("&") : "";
                 var tag = "";
                 for (var i = 0 ; i < searcheUrlParams.length ; i ++) {
@@ -221,7 +220,7 @@ var articleList = new Vue({
 
             }
         },
-        generatePageTool: ()=> {
+        generatePageTool: function () {
             var nowPage = this.page;
             var pageSize = this.pageSize;
             var totalCount = this.count;
@@ -245,7 +244,7 @@ var articleList = new Vue({
             return result;
         }
     },
-    created: function (){
+    created: function(){
         this.getPage(this.page, this.pageSize);
     }
 });

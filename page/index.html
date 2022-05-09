@@ -30,14 +30,18 @@
         <div class="content_left">
             <div class="every_day" id="every_day">
                 <span> <span class="laba"></span>每日一句</span>
-                <p v-html="content"></p>
+                <p v-if="content" v-html="content"></p>
+                <p v-else>暂无每日一句，请先
+                    <a href="/edit_every_day.html" class="linka">添加</a>
+                    吧
+                </p>
                 <!-- <p v-html="getContent"></p> -->
             </div>
-            <div class="article_list" id="article_list">
+            <div v-if="articleList.length > 0" class="article_list" id="article_list">
                 <div class="article" v-for="article in articleList">
                     <a v-bind:href="article.link" class="article_title">{{article.title}}</a>
-                    <p class="article_content" v-html="article.content">
-                        
+                    <p class="article_content">
+                        {{article.content}}
                     </p>
                     <div class="article_foot">
                         <div class="box"> 
@@ -56,19 +60,30 @@
                     </ul>
                 </div>
             </div>
+            <div v-else style="margin-top:350px">   
+                <img src="./img/empty.png" class="empty">
+                <p>暂无文章，请先
+                    <a href="/edit_blog.html" class="linka">添加</a>
+                    吧
+                </p>
+            </div>
         </div>
         <div class="content_right">
             <div class="right_moodule" id="random_tags">
                 <div><span class="icon1"></span>随机标签云</div>
-                <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+                <div v-if="tags.length > 0">
+                    <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+                </div> 
+                <img v-else src="./img/empty.png" class="empty">
             </div>
             <div class="right_moodule" id="new_hot">
                 <div><span class="icon2"></span>最近热门</div>
-                <ul>
+                <ul v-if="titleList.length > 0">
                     <li v-for="temp in titleList">
                         <a v-bind:href="temp.link">{{temp.title}}</a>
                     </li>
-                </ul>
+                </ul> 
+                <img v-else  src="./img/empty.png" class="empty">
             </div>
             <div class="right_moodule" id="new_comments">
                 <div><span class="icon3"></span>最新评论</div>
