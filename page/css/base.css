@@ -36,7 +36,7 @@ body {
     line-height: 50px;
     text-decoration: none;
     margin: 0px 15px;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,3 +285,29 @@ body {
     display: block;
     margin: 10px auto;
 }
+.blogger{
+    width: 36px;
+    margin-right: 10px;
+}
+.linka{
+    color: #ea6f5a !important;
+    text-decoration: none;
+}
+.curPage{
+    color: #ea6f5a !important;
+    font-weight: bold;
+    font-size: 16px;
+}
+.gobackBtn{
+    width: 130px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    color: #333;
+  }

@@ -63,10 +63,7 @@
     background-size: cover;
     margin-right: 6px;
 }
-.blogger{
-    width: 36px;
-    margin-right: 10px;
-}
+
 .every_day > span {
     display: block;
     font-size: 20px;
@@ -146,8 +143,4 @@
     justify-content: center;
     /* margin-left: 30px; */
     padding-right: 20px;
-}
-.linka{
-    color: #ea6f5a;
-    text-decoration: none;
 }

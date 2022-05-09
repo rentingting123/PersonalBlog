@@ -31,7 +31,7 @@
           return false
         }
           $.ajax({
-              url: "/editBlog?",
+              url: "/editBlog?title=" + title + "&tags=" + tags,
               method: "post",
               data: {
                 title,
@@ -66,14 +66,14 @@
         margin-bottom: 20px;
       }
       .submitBtn {
-        width: 200px;
+        width: 130px;
         height: 50px;
         margin-top: 20px;
         border-radius: 10px;
-        border: 1px solid rgba(234, 111, 90,.5);
+        border: 1px solid rgba(234, 111, 90,1);
         margin-bottom: 10px;
         font-size: 14px;
-        background: rgba(234, 111, 90,.5);
+        background: rgba(234, 111, 90,.8);
         cursor: pointer;
         color: #fff;
       }
@@ -164,6 +164,7 @@
       </div>
       <div id="editor"></div>
       </div>
+      <button onclick="window.history.go(-1)" class="gobackBtn">返回</button>
       <button onclick="submit()" class="submitBtn">提交</button>
   </div>
   <script>

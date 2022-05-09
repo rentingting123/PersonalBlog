@@ -23,7 +23,7 @@ var everyDay = new Vue({
     }
 });
 
-var articleList = new Vue({
+var articleListFun = new Vue({
     el: "#article_list",
     data: {
         page: 1,
@@ -173,8 +173,8 @@ var articleList = new Vue({
                             temp.link = "/blog_detail.html?bid=" + result[i].id;
                             list.push(temp);
                         }
-                        articleList.articleList = list;
-                        articleList.page = page;
+                        articleListFun.articleList = list;
+                        articleListFun.page = page;
                     }).catch( (resp)=> {
                         console.log("请求错误");
                     });
@@ -182,8 +182,8 @@ var articleList = new Vue({
                         method: "get",
                         url: "/queryBlogCount"
                     }).then((resp)=> {
-                        articleList.count = resp.data.data[0].count;
-                        articleList.generatePageTool;
+                        articleListFun.count = resp.data.data[0].count;
+                        articleListFun.generatePageTool;
                     });
                 } else {
                     axios({
@@ -203,8 +203,8 @@ var articleList = new Vue({
                             temp.link = "/blog_detail.html?bid=" + result[i].id;
                             list.push(temp);
                         }
-                        articleList.articleList = list;
-                        articleList.page = page;
+                        articleListFun.articleList = list;
+                        articleListFun.page = page;
                     }).catch( (resp)=> {
                         console.log("请求错误");
                     });
@@ -213,8 +213,8 @@ var articleList = new Vue({
                         method: "get",
                         url: "/queryByTagCount?tag=" + tag
                     }).then((resp)=> {
-                        articleList.count = resp.data.data[0].count;
-                        articleList.generatePageTool;
+                        articleListFun.count = resp.data.data[0].count;
+                        articleListFun.generatePageTool;
                     });
                 }
 
