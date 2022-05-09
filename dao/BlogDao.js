@@ -1,6 +1,5 @@
 var dbutil = require("./DBUtil");
 var moment = require('moment');
-console.log(moment().format(),4444444)
 // 插入文章
 function insertBlog(title, content, tags, views, ctime, utime, success) {
     var insertSql = "insert into blog (`title`, `content`, `tags`, `views`, `ctime`, `utime`) values (?, ?, ?, ?, ?, ?)";
@@ -29,8 +28,8 @@ function queryBlogByPage(page, pageSize, success) {
             let res = result.map(item =>{
              return{
                 ...item,
-                ctime: moment(item.ctime).format('YYYY-MM-DD HH:mm:ss'),
-                utime: moment(item.utime).format('YYYY-MM-DD HH:mm:ss')
+                ctime: moment(item.ctime).format('YYYY-MM-DD hh:mm:ss'),
+                utime: moment(item.utime).format('YYYY-MM-DD hh:mm:ss')
              }   
             })
             success(res);
