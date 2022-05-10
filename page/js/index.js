@@ -26,7 +26,7 @@ var articleListFun = new Vue({
     el: "#article_list",
     data: {
         page: 1,
-        pageSize: 5,
+        pageSize: 10,
         count: 100,
         pageNumList: [],
         articleList: []
