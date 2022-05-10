@@ -28,7 +28,10 @@
     <div class="content">
         <div class="content_left">
             <div class="every_day" id="every_day">
-                <span> <span class="laba"></span>每日一句</span>
+                <div class="textbox">
+                    <span class="text">每日一句</span>
+                    <a href="/edit_every_day.html" class="addtext">+</a>
+                </div>
                 <p v-if="content" v-html="content"></p>
                 <p v-else>暂无每日一句，请先
                     <a href="/edit_every_day.html" class="linka">添加</a>

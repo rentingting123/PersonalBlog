@@ -64,7 +64,7 @@
     margin-right: 6px;
 }
 
-.every_day > span {
+.every_day .text {
     display: block;
     font-size: 20px;
     margin-bottom: 5px;
@@ -75,6 +75,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-animation: hue 10s infinite linear;
+}
+.textbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.addtext{
+    font-size: 30px;
+    color:#ec7259 ;
+    text-decoration: none;
 }
 @-webkit-keyframes hue {
     from {
@@ -114,7 +124,7 @@
 }
 
 .article_title:hover {
-    color: #337ab7
+    color: #ec7259
 }
 
 .article_content {
