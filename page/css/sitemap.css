@@ -87,6 +87,25 @@
     background-size: cover;
     margin-right: 6px;
 }
+.edit1{
+    display: inline-block;
+    background: url('../img/edit.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.del1{
+    display: inline-block;
+    background: url('../img/delete.png') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 6px;
+}
+.edits{
+    cursor: pointer;
+}
 .sitemap_foot {
     color: #9999;
     /* width: 100%; */
@@ -102,4 +121,18 @@
     justify-content: center;
     /* margin-left: 30px; */
     padding-right: 20px;
+}
+.add{
+    background-color:#ea6f5a;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #bfc2c1;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.add > .addA {
+    color: #fff !important;
+    text-decoration: none;
+    
 }
