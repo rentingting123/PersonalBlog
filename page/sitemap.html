@@ -30,27 +30,20 @@
           <li><a href="/guestbook.html">留言</a></li>
         </ul>
         <div class="search_bar">
-          <input type="text" placeholder="输入关键词查找" />
-          <button>搜索</button>
-        </div>
+          <a href="/edit_blog.html"><img src="./img/write.png" alt=""> 写文章</a>
+      </div>
       </div>
     </header>
 
     <div class="content">
-      <!-- 新增按钮 -->
-      <div class="add">
-        <a href="/edit_blog.html" class="addA">+新增</a>
-      </div>
-      <!-- <div class="titlepeople">个人博客</div>
-        <div class="link"><a href="/"><b>博客首页</b></a> >> 站内文章</div> -->
       <div class="blog_list" id="blog_list">
-        <!-- <span>最新文章</span> -->
         <ul v-if="blogList.length > 0">
           <li v-for="blog in blogList">
             <a v-bind:href="blog.link"> {{blog.title}}</a>
             <div class="sitemap_foot">
-              <div class="box edits" onclick="toEdit()"><span class="edit1"></span>编辑</div>
-              <div class="box edits" onclick="toDel()"><span class="del1"></span>删除</div>
+              
+              <div class="box edits" onclick="toEdit()"><span class="edit1"></span></div>
+              <div class="box edits" onclick="toDel()"><span class="del1"></span></div>
               <!-- <div class="box"><span class="icon5"></span>{{blog.tags}}</div> -->
               <!-- <div class="box">
                 <span class="icon4"></span>
