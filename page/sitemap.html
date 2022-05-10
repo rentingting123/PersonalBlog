@@ -1,78 +1,92 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>个人博客</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/sitemap.css">
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/sitemap.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="./js/axios.js"></script>
-</head>
-<body>
+    <script>
+        function toEdit() {
+            console.log('去往编辑页面');
+        }
+        function toDel(){
+            console.log('删除该数据');
+        }
+    </script>
+  </head>
+  <body>
     <header class="header">
-        <div class="container">
-            <a href="/" class="title">
-                <img src="./img/social-blogger.png" alt="" class="blogger">
-                我的个人博客 | 古诗文博客</a>
-            <ul class="menu">
-                <li><a href="/">首页</a></li>
-                <li><a href="/sitemap.html" class="curPage">古诗</a></li>
-                <li><a href="/about.html">关于</a></li>
-                <li><a href="/guestbook.html">留言</a></li>
-            </ul>
-            <div class="search_bar">
-                <input type="text" placeholder="输入关键词查找">
-                <button>搜索</button>
-            </div>
+      <div class="container">
+        <a href="/" class="title">
+          <img src="./img/social-blogger.png" alt="" class="blogger" />
+          我的个人博客 | 古诗文博客</a
+        >
+        <ul class="menu">
+          <li><a href="/">首页</a></li>
+          <li><a href="/sitemap.html" class="curPage">古诗</a></li>
+          <li><a href="/about.html">关于</a></li>
+          <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="search_bar">
+          <input type="text" placeholder="输入关键词查找" />
+          <button>搜索</button>
         </div>
+      </div>
     </header>
+
     <div class="content">
-        <!-- <div class="titlepeople">个人博客</div>
+      <!-- 新增按钮 -->
+      <div class="add">
+        <a href="/edit_blog.html" class="addA">+新增</a>
+      </div>
+      <!-- <div class="titlepeople">个人博客</div>
         <div class="link"><a href="/"><b>博客首页</b></a> >> 站内文章</div> -->
-        <div class="blog_list" id="blog_list">
-            <!-- <span>最新文章</span> -->
-            <ul v-if="blogList.length > 0">
-                <li v-for="blog in blogList">
-                    <a v-bind:href="blog.link">
-                    {{blog.title}}</a>
-                    <div class="sitemap_foot">
-                        <div class="box"> 
-                            <span class="icon5"></span>{{blog.tags}}
-                        </div>
-                        <div class="box"> 
-                            <span class="icon4"></span>
-                            {{blog.views}}
-                        </div>
-                        <div>{{blog.ctime}}</div> 
-                    </div>
-                </li>
-            </ul>
-            <div v-else style="margin:150px auto;text-align: center;">   
-                <img src="./img/empty.png" class="empty">
-                <p>暂无文章，请先
-                    <a href="/edit_blog.html" class="linka">添加</a>
-                    吧
-                </p>
+      <div class="blog_list" id="blog_list">
+        <!-- <span>最新文章</span> -->
+        <ul v-if="blogList.length > 0">
+          <li v-for="blog in blogList">
+            <a v-bind:href="blog.link"> {{blog.title}}</a>
+            <div class="sitemap_foot">
+              <div class="box edits" onclick="toEdit()"><span class="edit1"></span>编辑</div>
+              <div class="box edits" onclick="toDel()"><span class="del1"></span>删除</div>
+              <!-- <div class="box"><span class="icon5"></span>{{blog.tags}}</div> -->
+              <!-- <div class="box">
+                <span class="icon4"></span>
+                {{blog.views}}
+              </div> -->
+              <!-- <div>{{blog.ctime}}</div> -->
             </div>
+          </li>
+        </ul>
+        <div v-else style="margin: 150px auto; text-align: center">
+          <img src="./img/empty.png" class="empty" />
+          <p>
+            暂无文章，请先
+            <a href="/edit_blog.html" class="linka">添加</a>
+            吧
+          </p>
         </div>
+      </div>
     </div>
     <footer class="footer">
-        <ul>
-            <li>古诗文网</li>
-            <li>诗文</li>
-            <li>名句</li>
-            <li>作者</li>
-            <li>古籍</li>
-            <li>纠错</li>
-            <li>中国哲学</li>
-            <li>作家</li>
-            <li>作品</li>
-            <li>朝代</li>
-            <li>谚语</li>
-            <li>对联</li>      
-        </ul>
-        <p>Copyright © 2022 rtt个人博客</p>
+      <ul>
+        <li>古诗文网</li>
+        <li>诗文</li>
+        <li>名句</li>
+        <li>作者</li>
+        <li>古籍</li>
+        <li>纠错</li>
+        <li>中国哲学</li>
+        <li>作家</li>
+        <li>作品</li>
+        <li>朝代</li>
+        <li>谚语</li>
+        <li>对联</li>
+      </ul>
+      <p>Copyright © 2022 rtt个人博客</p>
     </footer>
     <script src="./js/sitemap.js"></script>
-</body>
+  </body>
 </html>
