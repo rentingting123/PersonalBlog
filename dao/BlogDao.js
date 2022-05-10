@@ -25,14 +25,7 @@ function queryBlogByPage(page, pageSize, success) {
     connection.connect();
     connection.query(insertSql, params, function (error, result) {
         if (error == null) {
-            let res = result.map(item =>{
-             return{
-                ...item,
-                ctime: moment(item.ctime).format('YYYY-MM-DD hh:mm:ss'),
-                utime: moment(item.utime).format('YYYY-MM-DD hh:mm:ss')
-             }   
-            })
-            success(res);
+            success(result);
         } else {
             console.log(error);
         }

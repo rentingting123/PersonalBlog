@@ -9,7 +9,7 @@ var url = require("url");
 
 var path = new Map();
 
-
+// 添加评论
 function addComment(request, response) {
     var params = url.parse(request.url, true).query;
 
@@ -21,14 +21,16 @@ function addComment(request, response) {
 }
 path.set("/addComment", addComment);
 
+// 查询随机验证码
 function queryRandomCode(request, response) {
     var img = captcha.create({fontSize: 50, width: 100, height: 34});
     response.writeHead(200);
-    response.write(respUtil.writeResult("success", "评论成功", img));
+    response.write(respUtil.writeResult("success", "操作成功", img));
     response.end();
 }
 path.set("/queryRandomCode", queryRandomCode);
 
+// 通过id查文章的评论
 function queryCommentsByBlogId(request, response) {
     var params = url.parse(request.url, true).query;
     commentDao.queryCommentsByBlogId(parseInt(params.bid), function(result) {
@@ -39,6 +41,7 @@ function queryCommentsByBlogId(request, response) {
 }
 path.set("/queryCommentsByBlogId", queryCommentsByBlogId);
 
+// 查询评论的数量
 function queryCommentsCountByBlogId(request, response) {
     var params = url.parse(request.url, true).query;
     commentDao.queryCommentCountByBlogId(parseInt(params.bid), function (result) {
