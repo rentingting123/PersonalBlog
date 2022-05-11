@@ -28,14 +28,11 @@ var editBlog = new Vue({
                 // 新增
                 if(editBlog.isAdd){
                     axios({
-                        url: "/addBlog",
+                        url: "/addBlog?title=" + title + "&tags=" + tags,
                         method: "post",
-                        data: {
-                            title,
-                            tags,
-                            content
-                        },
+                        data:content,
                         success: function (resp) {
+                            console.log(resp)
                         var result = JSON.parse(resp);
                         alert(result.msg);
                         },
@@ -46,22 +43,17 @@ var editBlog = new Vue({
                 }else{
                     // 编辑 
                     axios({
-                    url: "/editBlog",
-                    method: "post",
-                    data: {
-                        id: editBlog.bid,
-                        title,
-                        tags,
-                        content
-                    },
-                    success: function (resp) {
-                    var result = JSON.parse(resp);
-                    alert(result.msg);
-                    },
-                    error: function (resp) {
-                    console.log(resp);
-                    },
-                });
+                        url: "/editBlog?id=" + editBlog.bid + "&title=" + title + "&tags=" + tags,
+                        method: "post",
+                        data: content,
+                        success: function (resp) {
+                        var result = JSON.parse(resp);
+                        alert(result.msg);
+                        },
+                        error: function (resp) {
+                        console.log(resp);
+                        },
+                    });
                 }
             //   window.history.go(-1);
             }

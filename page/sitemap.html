@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="./css/sitemap.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="./js/axios.js"></script>
-    <script>
-        function toEdit() {
-            console.log('去往编辑页面');
-        }
-        function toDel(){
-            console.log('删除该数据');
-        }
-    </script>
   </head>
   <body>
     <header class="header">
@@ -42,6 +34,7 @@
             <a v-bind:href="blog.link"> {{blog.title}}</a>
             <div class="sitemap_foot">
               <a :href='"/edit_blog.html?bid="+ blog.id' class="linka">编辑</a>
+              <div class="box edits" v-on:click="deleteBlogId(blog.id)"><span class="del1"></span></div>
               <!-- <div class="box edits" onclick="toEdit()"><span class="edit1"></span></div>
               <div class="box edits" onclick="toDel()"><span class="del1"></span></div> -->
               <!-- <div class="box"><span class="icon5"></span>{{blog.tags}}</div> -->

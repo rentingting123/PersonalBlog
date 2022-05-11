@@ -61,12 +61,12 @@ function queryBlogByPage(request, response) {
 path.set("/queryBlogByPage", queryBlogByPage);
 // 新增文章
 function addBlog(request, response) {
-    console.log(request,55555555555555555555);
-    request.on("data", function (data) {
-        console.log(data,55555555555555555555);
-        blogDao.insertBlog(data.title, data.content, data.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
+     var params = url.parse(request.url, true).query;
+    var tags = params.tags.replace(/ /g, "").replace("，", ",");
+    request.on("data", (data)=> {
+        blogDao.insertBlog(params.title, data.toString().trim(), params.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
             response.writeHead(200);
-            response.write(respUtil.writeResult("success", "添加成功", null));
+            response.write(respUtil.writeResult("success", "添加成功", 200));
             response.end();
             var blogId = result.insertId;
             var tagList = tags.split(",");
@@ -82,12 +82,12 @@ function addBlog(request, response) {
 path.set("/addBlog", addBlog);
 // 编辑文章
 function editBlog(request, response) {
-    // var params = url.parse(request.url, true).query;
-    // var tags = params.tags.replace(/ /g, "").replace("，", ",");
+    var params = url.parse(request.url, true).query;
+    var tags = params.tags.replace(/ /g, "").replace("，", ",");
     request.on("data", (data)=> {
-        blogDao.editBlog(data.id, data.title, data.content, data.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
+        blogDao.editBlog(params.id, params.title, data.toString().trim(), params.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
             response.writeHead(200);
-            response.write(respUtil.writeResult("success", "修改成功", null));
+            response.write(respUtil.writeResult("success", "修改成功", 200));
             response.end();
             var blogId = result.insertId;
             var tagList = tags.split(",");
@@ -103,19 +103,17 @@ function editBlog(request, response) {
 path.set("/editBlog", editBlog);
 // 删除文章
 function deleteBlog(request, response) {
-    request.on("data",  (data)=> {
-        blogDao.deleteBlog(data.id, function (result) {
-            response.writeHead(200);
-            response.write(respUtil.writeResult("success", "删除成功", null));
-            response.end();
-        });
+    var params = url.parse(request.url, true).query;
+    blogDao.deleteBlog(params.id, function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "删除成功", 200));
+        response.end();
     });
 }
 path.set("/deleteBlog", deleteBlog);
 // 查询标签
 function queryTag(tag, blogId) {
     tagsDao.queyrTag(tag, function (result) {
-        console.log()
        if (result == null || result.length == 0) {
             insertTag(tag, blogId);
        } else {

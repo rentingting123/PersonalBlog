@@ -6,7 +6,17 @@ var blogList = new Vue({
         blogList: [],
     },
     computed: {
-
+        deleteBlogId: function() {
+            return function(id) {
+                console.log('111 js');
+                axios({
+                    method: "get",
+                    url: "/deleteBlog?id=" + id,
+                }).then( (resp)=> {
+                    alert(resp.data.msg);
+                });
+            }
+        }
     },
     created: ()=> {
         axios({

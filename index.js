@@ -12,7 +12,7 @@ app.get("/queryEveryDay", loader.get("/queryEveryDay"));
 
 app.post("/addBlog", loader.get("/addBlog"));
 app.post("/editBlog", loader.get("/editBlog"));
-app.post("/deleteBlog", loader.get("/deleteBlog"));
+app.get("/deleteBlog", loader.get("/deleteBlog"));
 
 app.get("/queryBlogByPage", loader.get("/queryBlogByPage"));
 
