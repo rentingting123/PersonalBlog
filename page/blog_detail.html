@@ -11,17 +11,18 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="/" class="title">我的个人博客 | 技术博客</a>
+            <a href="/" class="title">
+                <img src="./img/social-blogger.png" alt="" class="blogger">
+                我的个人博客 | 古诗文博客</a>
             <ul class="menu">
                 <li><a href="/">首页</a></li>
-                <li><a href="/sitemap.html">地图</a></li>
+                <li><a href="/sitemap.html">古诗</a></li>
                 <li><a href="/about.html">关于</a></li>
                 <li><a href="/guestbook.html">留言</a></li>
             </ul>
-            <div class="search_bar">
-                <input type="text" placeholder="输入关键词查找">
-                <button>搜索</button>
-            </div>
+            <!-- <div class="search_bar">
+                <a href="/edit_blog.html"><img src="./img/write.png" alt=""> 写文章</a>
+            </div> -->
         </div>
     </header>
     <div class="content">
@@ -72,19 +73,23 @@
         </div>
         <div class="content_right">
             <div class="right_moodule" id="random_tags">
-                <div>随机标签云</div>
-                <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+                <div><span class="icon1"></span>随机标签云</div>
+                <div v-if="tags.length > 0">
+                    <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+                </div> 
+                <img v-else src="./img/empty.png" class="empty">
             </div>
             <div class="right_moodule" id="new_hot">
-                <div>最近热门</div>
-                <ul>
+                <div><span class="icon2"></span>最近热门</div>
+                <ul v-if="titleList.length > 0">
                     <li v-for="temp in titleList">
                         <a v-bind:href="temp.link">{{temp.title}}</a>
                     </li>
-                </ul>
+                </ul> 
+                <img v-else  src="./img/empty.png" class="empty">
             </div>
             <div class="right_moodule" id="new_comments">
-                <div>最新评论</div>
+                <div><span class="icon3"></span>最新评论</div>
                 <ul v-if="commentList.length > 0">
                     <li v-for="comment in commentList">
                         <div>
@@ -96,14 +101,16 @@
                 </ul>
                 <img v-else src="./img/empty.png" class="empty">
             </div>
-            <!-- <div class="right_moodule">
-                <div>友情链接</div>
-                <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
-                <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
-                <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
-                <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
-                <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
-            </div> -->
+            <div class="right_moodule ">
+                <div><span class="icon6"></span>友情链接</div>
+                <p class="friendlink">
+                    <span><a href="/">古诗文网</a></span>
+                    <span><a href="/">古诗文博客</a></span>
+                    <span><a href="/">中国古代哲学</a></span>
+                    <span><a href="/">唐诗宋词</a></span>
+                    <span><a href="/">古籍</a></span>
+                </p>
+            </div>
         </div>
     </div>
     <footer class="footer">

@@ -10,7 +10,10 @@ app.use(express.static("./page/"));// 设置静态文件的位置
 app.post("/editEveryDay", loader.get("/editEveryDay"));
 app.get("/queryEveryDay", loader.get("/queryEveryDay"));
 
+app.post("/addBlog", loader.get("/addBlog"));
 app.post("/editBlog", loader.get("/editBlog"));
+app.post("/deleteBlog", loader.get("/deleteBlog"));
+
 app.get("/queryBlogByPage", loader.get("/queryBlogByPage"));
 
 app.get("/queryBlogCount", loader.get("/queryBlogCount"));

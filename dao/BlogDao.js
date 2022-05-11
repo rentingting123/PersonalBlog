@@ -1,9 +1,40 @@
 var dbutil = require("./DBUtil");
-var moment = require('moment');
 // 插入文章
 function insertBlog(title, content, tags, views, ctime, utime, success) {
     var insertSql = "insert into blog (`title`, `content`, `tags`, `views`, `ctime`, `utime`) values (?, ?, ?, ?, ?, ?)";
     var params = [title, content, tags, views, ctime, ctime];
+
+    var connection = dbutil.createConnection();
+    connection.connect();
+    connection.query(insertSql, params, function (error, result) {
+        if (error == null) {
+            success(result);
+        } else {
+            console.log(error);
+        }
+    });
+    connection.end();
+}
+// 修改文章
+function editBlog(id, title, content, tags, views, ctime, utime, success) {
+    var insertSql = "update blog set(`id`,`title`, `content`, `tags`, `views`, `ctime`, `utime`) values (?, ?, ?, ?, ?, ?, ?)";
+    var params = [id, title, content, tags, views, ctime, ctime];
+
+    var connection = dbutil.createConnection();
+    connection.connect();
+    connection.query(insertSql, params, function (error, result) {
+        if (error == null) {
+            success(result);
+        } else {
+            console.log(error);
+        }
+    });
+    connection.end();
+}
+// 删除文章
+function deleteBlog(id ) {
+    var insertSql = "DELETE FROM blog  WHERE(`id`) values (?)";
+    var params = [id];
 
     var connection = dbutil.createConnection();
     connection.connect();
@@ -80,7 +111,7 @@ function queryAllBlog(success) {
     });
     connection.end();
 }
-
+// 增加浏览次数
 function addViews(id, success) {
     var querySql = "update blog set views = views + 1 where id = ?;";
     var params = [id];
@@ -113,7 +144,10 @@ function queryHotBlog(size, success) {
     connection.end();
 }
 
-module.exports.insertBlog = insertBlog;
+module.exports.insertBlog = insertBlog; 
+module.exports.editBlog = editBlog; 
+module.exports.deleteBlog = deleteBlog; 
+
 module.exports.queryBlogByPage = queryBlogByPage;
 module.exports.queryBlogCount = queryBlogCount;
 module.exports.queryBlogById = queryBlogById;

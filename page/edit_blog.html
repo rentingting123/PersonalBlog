@@ -33,112 +33,19 @@
     <script src="./bootstrap-wysiwyg-master/external/google-code-prettify/prettify.js"></script>
     <link href="./bootstrap-wysiwyg-master/index.css" rel="stylesheet" />
     <script src="./bootstrap-wysiwyg-master/bootstrap-wysiwyg.js"></script>
-    <script>
-      function submit() {
-        var content = $("#editor").html();
-        var title = $("#title").val();
-        var tags = $("#tags").val();
-        if (title === "") {
-          alert("标题不能为空");
-          return false;
-        } else if (tags === "") {
-          alert("标签不能为空");
-          return false;
-        } else if (content === "") {
-          alert("文章内容不能为空");
-          return false;
-        }
-        $.ajax({
-          url: "/editBlog?title=" + title + "&tags=" + tags,
-          method: "post",
-          data: content,
-          success: function (resp) {
-            var result = JSON.parse(resp);
-            alert(result.msg);
-            $("#editor").html("");
-          },
-          error: function (resp) {
-            console.log(resp);
-          },
-        });
-        window.history.go(-1);
-      }
-    </script>
-    <style>
-      .title {
-        color: rgba(234, 111, 90, 1);
-        margin-top: 60px;
-        margin-bottom: 30px;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-      }
-      .labelipt {
-        display: inline-block;
-        /* width: 120px; */
-        font-size: 18px;
-        margin-right: 20px;
-      }
-      .iptbox {
-        margin-bottom: 20px;
-      }
-      .gobackBtn {
-        width: 130px;
-        height: 50px;
-        margin-top: 20px;
-        border-radius: 10px;
-        border: 1px solid #999;
-        margin-bottom: 10px;
-        margin-right: 20px;
-        font-size: 14px;
-        background: #fff;
-        cursor: pointer;
-        color: #333;
-      }
-      .submitBtn {
-        width: 130px;
-        height: 50px;
-        margin-top: 20px;
-        border-radius: 10px;
-        border: 1px solid rgba(234, 111, 90, 1);
-        margin-bottom: 10px;
-        font-size: 14px;
-        background: rgba(234, 111, 90, 0.8);
-        cursor: pointer;
-        color: #fff;
-      }
-      .submitBtn:hover {
-        background: rgba(234, 111, 90, 1);
-      }
-      .submitBtn:focus {
-        outline: none;
-      }
-      #tags,
-      #title {
-        width: 300px;
-        height: 30px;
-        border: 1px solid rgba(234, 111, 90, 0.5);
-        border-radius: 5px;
-        margin-right: 30px;
-      }
-      #tags:focus,
-      #title:focus {
-        border: 1px solid rgba(234, 111, 90, 1);
-        outline: none;
-        box-shadow: none;
-      }
-      .addimg{
-        width: 40px;
-        margin-right: 10px;
-    }
-    </style>
+
+    <link rel="stylesheet" href="./css/edit_blog.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/axios.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h1 class="title"><img src="./img/add.png" class="addimg">文章</h1>
+    <div class="container" id="edit_blog">
+      <h1 class="title">
+        <img :src="isAdd ? './img/add.png' : './img/update.png' " class="addimg">
+        {{ isAdd ? '添加' : '编辑' }}文章</h1>
       <div class="iptbox">
         <span class="labelipt">标题:</span>
-        <input type="text" placeholder="请输入标题" id="title" class="ipt" />
+        <input type="text" placeholder="请输入标题" id="title" class="ipt" v-model="title" />
       </div>
       <div class="iptbox">
         <span class="labelipt">标签:</span>
@@ -147,6 +54,7 @@
           placeholder="请输入标签，用逗号隔开"
           id="tags"
           class="ipt"
+          v-model="tags"
         />
       </div>
       <div>
@@ -279,11 +187,12 @@
             x-webkit-speech=""
           />
         </div>
-        <div id="editor"></div>
+        <div id="editor">{{ content }}</div>
       </div>
       <button onclick="window.history.go(-1)" class="gobackBtn">返回</button>
-      <button onclick="submit()" class="submitBtn">提交</button>
+      <button v-on:click="submitBlog()" class="submitBtn">提交</button>
     </div>
+    <script src="./js/edit_blog.js"></script>
     <script>
       $(function () {
         function initToolbarBootstrapBindings() {

@@ -1,3 +1,5 @@
+
+// 随机云标签
 var randomTags = new Vue({
     el: "#random_tags",
     data: {
@@ -34,6 +36,7 @@ var randomTags = new Vue({
     }
 });
 
+// 热点文章
 var newHot = new Vue({
     el: "#new_hot",
     data: {
@@ -56,6 +59,7 @@ var newHot = new Vue({
     }
 });
 
+// 新评论
 var newComments = new Vue({
     el: "#new_comments",
     data: {

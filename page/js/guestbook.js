@@ -1,3 +1,5 @@
+
+// 文字评论
 var blogComments = new Vue({
     el: "#blog_comments",
     data: {
@@ -37,6 +39,7 @@ var blogComments = new Vue({
     }
 });
 
+// 验证码评论
 var sendComment = new Vue({
     el: "#send_comment",
     data: {

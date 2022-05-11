@@ -1,4 +1,5 @@
 
+// 文章列表
 var blogList = new Vue({
     el: "#blog_list",
     data: {

@@ -1,4 +1,4 @@
-/* axios v0.19.0-beta.1 | (c) 2018 by Matt Zabriskie */
+
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -9,57 +9,53 @@
 	else
 		root["axios"] = factory();
 })(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+return   (function(modules) { 
+
+  	var installedModules = {};
+ 
+  	function __webpack_require__(moduleId) {
+ 
+
+  		if(installedModules[moduleId])
+  			return installedModules[moduleId].exports;
+ 
+  		var module = installedModules[moduleId] = {
+  			exports: {},
+  			id: moduleId,
+  			loaded: false
+  		};
+ 
+  		// Execute the module function
+  		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+ 
+  		// Flag the module as loaded
+  		module.loaded = true;
+ 
+  		// Return the exports of the module
+  		return module.exports;
+  	}
+ 
+
+  	__webpack_require__.m = modules;
+ 
+
+  	__webpack_require__.c = installedModules;
+ 
+
+  	__webpack_require__.p = "";
+
+  	return __webpack_require__(0);
+  })
+
+  ([
+
+  (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(1);
 
-/***/ }),
+  }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -116,9 +112,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports.default = axios;
 
 
-/***/ }),
+  }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -286,22 +282,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	function trim(str) {
 	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
 	}
-	
-	/**
-	 * Determine if we're running in a standard browser environment
-	 *
-	 * This allows axios to run in a web worker, and react-native.
-	 * Both environments support XMLHttpRequest, but not fully standard globals.
-	 *
-	 * web workers:
-	 *  typeof window -> undefined
-	 *  typeof document -> undefined
-	 *
-	 * react-native:
-	 *  navigator.product -> 'ReactNative'
-	 * nativescript
-	 *  navigator.product -> 'NativeScript' or 'NS'
-	 */
 	function isStandardBrowserEnv() {
 	  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
 	                                           navigator.product === 'NativeScript' ||
@@ -456,9 +436,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 3 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -473,9 +453,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 4 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	/*!
 	 * Determine if an object is a Buffer
@@ -490,9 +470,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ }),
+  }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -582,9 +562,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Axios;
 
 
-/***/ }),
+  }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -654,9 +634,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -712,9 +692,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = InterceptorManager;
 
 
-/***/ }),
+  }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -804,9 +784,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -830,9 +810,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 10 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -841,9 +821,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -945,9 +925,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = defaults;
 
 
-/***/ }),
+  }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -963,9 +943,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1143,9 +1123,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1174,9 +1154,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1198,9 +1178,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 16 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -1243,9 +1223,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1302,9 +1282,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1376,9 +1356,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	);
 
 
-/***/ }),
+  }),
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1435,9 +1415,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	);
 
 
-/***/ }),
+  }),
 /* 20 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -1455,9 +1435,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 21 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -1475,9 +1455,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1532,9 +1512,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ }),
+  }),
 /* 23 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -1557,9 +1537,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Cancel;
 
 
-/***/ }),
+  }),
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+  (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1620,9 +1600,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CancelToken;
 
 
-/***/ }),
+  }),
 /* 25 */
-/***/ (function(module, exports) {
+  (function(module, exports) {
 
 	'use strict';
 	
@@ -1653,8 +1633,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ })
-/******/ ])
+  })
+  ])
 });
 ;
 //# sourceMappingURL=axios.map

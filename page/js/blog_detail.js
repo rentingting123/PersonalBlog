@@ -1,3 +1,5 @@
+
+// 文章详情
 var blogDetail = new Vue({
     el: "#blog_detail",
     data: {
@@ -41,7 +43,7 @@ var blogDetail = new Vue({
         });
     }
 });
-
+// 验证码 评论
 var sendComment = new Vue({
     el: "#send_comment",
     data: {
@@ -99,6 +101,7 @@ var sendComment = new Vue({
     }
 });
 
+// 文章评论
 var blogComments = new Vue({
     el: "#blog_comments",
     data: {

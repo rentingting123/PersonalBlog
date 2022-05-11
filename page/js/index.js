@@ -1,3 +1,5 @@
+
+// 每日一句
 var everyDay = new Vue({
     el: "#every_day",
     data: {
@@ -21,6 +23,7 @@ var everyDay = new Vue({
         });
     }
 });
+
 
 var articleListFun = new Vue({
     el: "#article_list",

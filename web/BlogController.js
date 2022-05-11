@@ -59,12 +59,12 @@ function queryBlogByPage(request, response) {
     });
 }
 path.set("/queryBlogByPage", queryBlogByPage);
-// 编辑文章
-function editBlog(request, response) {
-    var params = url.parse(request.url, true).query;
-    var tags = params.tags.replace(/ /g, "").replace("，", ",");
-    request.on("data",  (data)=> {
-        blogDao.insertBlog(params.title, data.toString(), tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
+// 新增文章
+function addBlog(request, response) {
+    console.log(request,55555555555555555555);
+    request.on("data", function (data) {
+        console.log(data,55555555555555555555);
+        blogDao.insertBlog(data.title, data.content, data.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
             response.writeHead(200);
             response.write(respUtil.writeResult("success", "添加成功", null));
             response.end();
@@ -79,7 +79,39 @@ function editBlog(request, response) {
         });
     });
 }
+path.set("/addBlog", addBlog);
+// 编辑文章
+function editBlog(request, response) {
+    // var params = url.parse(request.url, true).query;
+    // var tags = params.tags.replace(/ /g, "").replace("，", ",");
+    request.on("data", (data)=> {
+        blogDao.editBlog(data.id, data.title, data.content, data.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
+            response.writeHead(200);
+            response.write(respUtil.writeResult("success", "修改成功", null));
+            response.end();
+            var blogId = result.insertId;
+            var tagList = tags.split(",");
+            for (var i = 0 ; i < tagList.length ; i ++) {
+                if (tagList[i] == "") {
+                    continue;
+                }
+                queryTag(tagList[i], blogId);
+            }
+        });
+    });
+}
 path.set("/editBlog", editBlog);
+// 删除文章
+function deleteBlog(request, response) {
+    request.on("data",  (data)=> {
+        blogDao.deleteBlog(data.id, function (result) {
+            response.writeHead(200);
+            response.write(respUtil.writeResult("success", "删除成功", null));
+            response.end();
+        });
+    });
+}
+path.set("/deleteBlog", deleteBlog);
 // 查询标签
 function queryTag(tag, blogId) {
     tagsDao.queyrTag(tag, function (result) {
