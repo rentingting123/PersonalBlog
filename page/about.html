@@ -1,134 +1,139 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>个人博客</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/about.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="./js/axios.js"></script>
+	<meta charset="UTF-8">
+	<title>个人博客</title>
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/about.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="./js/axios.js"></script>
 </head>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="/" class="title">
-                <img src="./img/social-blogger.png" alt="" class="blogger">
-                我的个人博客 | 古诗文博客</a>
-            <ul class="menu">
-                <li><a href="/">首页</a></li>
-                <li><a href="/sitemap.html">古诗</a></li>
-                <li><a href="/about.html" class="curPage">关于</a></li>
-                <li><a href="/guestbook.html">留言</a></li>
-            </ul>
-            <!-- <div class="search_bar">
+	<header class="header">
+		<div class="container">
+			<a href="/" class="title">
+				<img src="./img/social-blogger.png" alt="" class="blogger">
+				我的个人博客 | 古诗文博客</a>
+			<ul class="menu">
+				<li><a href="/">首页</a></li>
+				<li><a href="/sitemap.html">古诗</a></li>
+				<li><a href="/about.html" class="curPage">关于</a></li>
+				<li><a href="/guestbook.html">留言</a></li>
+			</ul>
+			<!-- <div class="search_bar">
                 <a href="/edit_blog.html"><img src="./img/write.png" alt=""> 写文章</a>
             </div> -->
-        </div>
-    </header>
-<div class="content">
-    <div class="content_left">
-        <div class="description">
-            <div class="about_title">关于我</div>
-            <p>博主任婷婷，现居美丽的杭州市，90后小姐姐。</p>
-            <p>是活泼开朗的程序员。</p>
-            <p>多年web前端开发，自认为技术很好。</p>
-            <p>酷爱中国古代文学。</p>
-            <p>喜欢旅游，古建筑，文学，写代码。</p>
-           
+		</div>
+	</header>
+	<div class="content">
+		<div class="content_left">
+			<div class="description">
+				<div class="about_title">关于我</div>
+				<p>博主任婷婷，现居美丽的杭州市，90后小姐姐。</p>
+				<p>是活泼开朗的程序员。</p>
+				<p>多年web前端开发，自认为技术很好。</p>
+				<p>酷爱中国古代文学。</p>
+				<p>喜欢旅游，古建筑，文学，写代码。</p>
 
-            <div class="about_title">关于博客</div>
-            <p>浮生长恨欢娱少。 </p>
-            <p>莫思身外无穷事，且尽生前有限杯。</p>
-            <p>天下事，问天怎忍如此！</p>
-            <p>古典文学经典传承。</p>
-            <p>随时随地更新喜欢的文章，句子。</p>
-        </div>
-        <div class="blog_comments" id="blog_comments">
-            <span class="blog_comments_msg">当前文章：{{total}} 条留言</span>
-            <div class="blog_comment" v-for="comment in comments">
-                <span><b>{{comment.user_name}}</b>：{{comment.options}} 发表于 {{comment.ctime}} <a style="cursor: pointer" v-on:click="reply(comment.id, comment.user_name)">[回复]</a></span>
-                <div>{{comment.comments}}</div>
-            </div>
-        </div>
 
-        <div class="send_comment" id="send_comment">
-            <span>发表评论</span>
-            <div>
-                <input type="hidden" id="comment_reply" value="-1">
-                <input type="hidden" id="comment_reply_name" value="0">
-                <input type="text" placeholder="昵称" id="comment_name">
-                <input type="text" placeholder="邮箱（评论被回复时你能收到通知）" id="comment_email">
-            </div>
-            <div>
-                <textarea placeholder="无意义的内容我可能不会回复你" id="comment_content"></textarea>
-            </div>
-            <div>
-                <input type="text" placeholder="验证码" id="comment_code">
-                <span v-html="vcode" v-on:click="changeCode()"></span>
-            </div>
-            <button v-on:click="sendComment()">提交评论</button>
-        </div>
-    </div>
-    <div class="content_right">
-        <div class="right_moodule" id="random_tags">
-            <div><span class="icon1"></span>随机标签云</div>
-            <div v-if="tags.length > 0">
-                <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
-            </div> 
-            <img v-else src="./img/empty.png" class="empty">
-        </div>
-        <div class="right_moodule" id="new_hot">
-            <div><span class="icon2"></span>最近热门</div>
-            <ul v-if="titleList.length > 0">
-                <li v-for="temp in titleList">
-                    <a v-bind:href="temp.link">{{temp.title}}</a>
-                </li>
-            </ul> 
-            <img v-else  src="./img/empty.png" class="empty">
-        </div>
-        <div class="right_moodule" id="new_comments">
-            <div><span class="icon3"></span>最新评论</div>
-            <ul v-if="commentList.length > 0">
-                <li v-for="comment in commentList">
-                    <div>
-                        <span>{{comment.name}}</span>
-                        <span class="pull_right">{{comment.date}}</span>
-                    </div>
-                    <p>{{comment.comment}}</p>
-                </li>
-            </ul>
-            <img v-else src="./img/empty.png" class="empty">
-        </div>
-        <div class="right_moodule ">
-            <div><span class="icon6"></span>友情链接</div>
-            <p class="friendlink">
-                <span><a href="/">古诗文网</a></span>
-                <span><a href="/">古诗文博客</a></span>
-                <span><a href="/">中国古代哲学</a></span>
-                <span><a href="/">唐诗宋词</a></span>
-                <span><a href="/">古籍</a></span>
-            </p>
-        </div>
-    </div>
-</div>
-<footer class="footer">
-    <ul>
-        <li>古诗文网</li>
-        <li>诗文</li>
-        <li>名句</li>
-        <li>作者</li>
-        <li>古籍</li>
-        <li>纠错</li>
-        <li>中国哲学</li>
-        <li>作家</li>
-        <li>作品</li>
-        <li>朝代</li>
-        <li>谚语</li>
-        <li>对联</li>      
-    </ul>
-    <p>Copyright © 2022 rtt个人博客</p>
-</footer>
-<script src="./js/about.js"></script>
-<script src="./js/base.js"></script>
+				<div class="about_title">关于博客</div>
+				<p>浮生长恨欢娱少。 </p>
+				<p>莫思身外无穷事，且尽生前有限杯。</p>
+				<p>天下事，问天怎忍如此！</p>
+				<p>古典文学经典传承。</p>
+				<p>随时随地更新喜欢的文章，句子。</p>
+			</div>
+			<div class="blog_comments" id="blog_comments">
+				<span class="blog_comments_msg">当前文章：{{total}} 条留言</span>
+				<div class="blog_comment" v-for="comment in comments">
+					<span><b>{{comment.user_name}}</b>：{{comment.options}} 发表于 {{comment.ctime}} <a style="cursor: pointer"
+							v-on:click="reply(comment.id, comment.user_name)">[回复]</a></span>
+					<div>{{comment.comments}}</div>
+				</div>
+			</div>
+
+			<div class="send_comment" id="send_comment">
+				<span>发表评论</span>
+				<div>
+					<input type="hidden" id="comment_reply" value="-1">
+					<input type="hidden" id="comment_reply_name" value="0">
+					<input type="text" placeholder="昵称" id="comment_name">
+					<input type="text" placeholder="邮箱（评论被回复时你能收到通知）" id="comment_email">
+				</div>
+				<div>
+					<textarea placeholder="无意义的内容我可能不会回复你" id="comment_content"></textarea>
+				</div>
+				<div>
+					<input type="text" placeholder="验证码" id="comment_code">
+					<span v-html="vcode" v-on:click="changeCode()"></span>
+				</div>
+				<button v-on:click="sendComment()">提交评论</button>
+			</div>
+		</div>
+		<div class="content_right">
+			<div class="right_moodule" id="random_tags">
+				<div><span class="icon1"></span>随机标签云</div>
+				<div v-if="tags.length > 0">
+					<a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}"
+						v-bind:href="tag.link">{{tag.text}}</a>
+				</div>
+				<img v-else src="./img/empty.png" class="empty">
+			</div>
+			<div class="right_moodule" id="new_hot">
+				<div><span class="icon2"></span>最近热门</div>
+				<ul v-if="titleList.length > 0">
+					<li v-for="temp in titleList">
+						<a v-bind:href="temp.link">{{temp.title}}</a>
+					</li>
+				</ul>
+				<img v-else src="./img/empty.png" class="empty">
+			</div>
+			<div class="right_moodule" id="new_comments">
+				<div><span class="icon3"></span>最新评论</div>
+				<ul v-if="commentList.length > 0">
+					<li v-for="comment in commentList">
+						<div>
+							<span>{{comment.name}}</span>
+							<span class="pull_right">{{comment.date}}</span>
+						</div>
+						<p>{{comment.comment}}</p>
+					</li>
+				</ul>
+				<img v-else src="./img/empty.png" class="empty">
+			</div>
+			<div class="right_moodule ">
+				<div><span class="icon6"></span>友情链接</div>
+				<p class="friendlink">
+					<span><a href="/">古诗文网</a></span>
+					<span><a href="/">古诗文博客</a></span>
+					<span><a href="/">中国古代哲学</a></span>
+					<span><a href="/">唐诗宋词</a></span>
+					<span><a href="/">古籍</a></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<ul>
+			<li>古诗文网</li>
+			<li>诗文</li>
+			<li>名句</li>
+			<li>作者</li>
+			<li>古籍</li>
+			<li>纠错</li>
+			<li>中国哲学</li>
+			<li>作家</li>
+			<li>作品</li>
+			<li>朝代</li>
+			<li>谚语</li>
+			<li>对联</li>
+		</ul>
+		<p>Copyright © 2022 rtt个人博客</p>
+	</footer>
+	<script src="./js/about.js"></script>
+	<script src="./js/base.js"></script>
 </body>
+
 </html>

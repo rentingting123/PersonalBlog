@@ -63,7 +63,7 @@
     justify-content: space-between;
 }
 
-.blog_list li > a {
+.blog_list li .bloglink {
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -109,7 +109,7 @@
 .sitemap_foot {
     color: #9999;
     /* width: 100%; */
-    padding: 5px 15px;
+    padding: 10px 0;
     font-size: 14px;
     display: flex;
     align-items: center;
