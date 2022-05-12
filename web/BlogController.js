@@ -85,18 +85,19 @@ function editBlog(request, response) {
     var params = url.parse(request.url, true).query;
     var tags = params.tags.replace(/ /g, "").replace("，", ",");
     request.on("data", (data)=> {
+        console.log("文章controller");
         blogDao.editBlog(params.id, params.title, data.toString().trim(), params.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
             response.writeHead(200);
             response.write(respUtil.writeResult("success", "修改成功", 200));
             response.end();
-            var blogId = result.insertId;
-            var tagList = tags.split(",");
-            for (var i = 0 ; i < tagList.length ; i ++) {
-                if (tagList[i] == "") {
-                    continue;
-                }
-                queryTag(tagList[i], blogId);
-            }
+            // var blogId = result.insertId;
+            // var tagList = tags.split(",");
+            // for (var i = 0 ; i < tagList.length ; i ++) {
+            //     if (tagList[i] == "") {
+            //         continue;
+            //     }
+            //     queryTag(tagList[i], blogId);
+            // }
         });
     });
 }
