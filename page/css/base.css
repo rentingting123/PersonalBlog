@@ -92,6 +92,8 @@ body {
     width: 1170px;
     margin: 30px auto 0px;
     padding-bottom: 110px;
+    /* height: 80vh;
+    overflow-y: auto; */
 }
 
 .content_left {
@@ -199,9 +201,9 @@ body {
    width: 50%;
 }
 .footer {
-    position: fixed;
+    /* position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0; */
     width: 100%;
     height: 60px;
     background: rgba(234, 111, 90,.2);
