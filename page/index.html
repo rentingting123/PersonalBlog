@@ -15,10 +15,10 @@
 		<div class="container">
 			<a href="/" class="title">
 				<img src="./img/social-blogger.png" alt="" class="blogger">
-				我的个人博客 | 古诗文博客</a>
+				我的个人博客</a>
 			<ul class="menu">
 				<li><a href="/" class="curPage">首页</a></li>
-				<li><a href="/sitemap.html">古诗</a></li>
+				<li><a href="/sitemap.html">文章</a></li>
 				<li><a href="/about.html">关于</a></li>
 				<li><a href="/guestbook.html">留言</a></li>
 			</ul>
@@ -77,15 +77,18 @@
 		</div>
 		<div class="content_right">
 			<div class="right_moodule" id="random_tags">
-				<div><span class="icon1"></span>随机标签云</div>
+				<div class="titlerad"><span class="icon1"></span>随机标签云</div>
 				<div v-if="tags.length > 0">
-					<a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}"
+					<p>
+						<a v-for="tag in tags" class="yunbiaoiqn" v-bind:style="{color:randomColor(), fontSize:randomSize()}"
 						v-bind:href="tag.link">{{tag.text}}</a>
+					</p>
+					
 				</div>
 				<img v-else src="./img/empty.png" class="empty">
 			</div>
 			<div class="right_moodule" id="new_hot">
-				<div><span class="icon2"></span>最近热门</div>
+				<div class="titlerad"><span class="icon2"></span>最近热门</div>
 				<ul v-if="titleList.length > 0">
 					<li v-for="temp in titleList">
 						<a v-bind:href="temp.link">{{temp.title}}</a>
@@ -94,7 +97,7 @@
 				<img v-else src="./img/empty.png" class="empty">
 			</div>
 			<div class="right_moodule" id="new_comments">
-				<div><span class="icon3"></span>最新评论</div>
+				<div class="titlerad"><span class="icon3"></span>最新评论</div>
 				<ul v-if="commentList.length > 0">
 					<li v-for="comment in commentList">
 						<div>
@@ -107,7 +110,7 @@
 				<img v-else src="./img/empty.png" class="empty">
 			</div>
 			<div class="right_moodule ">
-				<div><span class="icon6"></span>友情链接</div>
+				<div class="titlerad"><span class="icon6"></span>友情链接</div>
 				<p class="friendlink">
 					<span><a href="/">古诗文网</a></span>
 					<span><a href="/">古诗文博客</a></span>

@@ -126,24 +126,19 @@ body {
     font-size: 14px;
     padding: 15px 5px 15px 0px;
     color: dodgerblue;
-    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 10s infinite linear;
+   
 }
-
+.right_moodule > div a{
+    text-decoration: none;
+   margin:0 8px;
+}
 .right_moodule > a {
     display: inline-block;
     font-size: 14px;
     color: dodgerblue;
     margin-right: 5px;
     text-decoration: none;
-    /* background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 10s infinite linear; */
 }
-
 .right_moodule > ul > li {
     list-style: none;
     color: #000;
@@ -156,7 +151,12 @@ body {
     font-size: 14px;
     color: #000;
 }
-
+.titlerad{
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
 .right_moodule > ul > li > div {
     padding: 5px 0px;
 }
@@ -164,6 +164,7 @@ body {
 .right_moodule > ul > li > div > span{
     font-size: 14px;
     color: #000;
+   
 }
 
 .right_moodule > ul > li > p {
