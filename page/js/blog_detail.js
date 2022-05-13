@@ -62,6 +62,7 @@ var sendComment = new Vue({
 					sendComment.rightCode = resp.data.data.text;
 				});
 			}
+			
 		},
 		sendComment: function () {
 			return function () {

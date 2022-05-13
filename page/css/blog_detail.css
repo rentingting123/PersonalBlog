@@ -30,6 +30,10 @@
     word-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
+    
+}
+.blog_content img{
+    max-width: 100%;
 }
 .box{
     display: flex;

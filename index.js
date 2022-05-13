@@ -36,4 +36,6 @@ app.get("/queryByTagCount", loader.get("/queryByTagCount"));
 
 app.listen(globalConfig.port, function() {
     console.log("服务器已启动");
+
+    
 });
