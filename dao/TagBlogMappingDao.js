@@ -16,6 +16,7 @@ function insertTagBlogMapping(tagId, blogId, ctime, utime, success) {
     connection.end();
 }
 
+// 通过标签查询文章
 function queryByTag(tagId, page, pageSize, success) {
     var insertSql = "select * from tag_blog_mapping where tag_id = ? limit ?, ?;";
     var params = [tagId, page * pageSize, pageSize];
@@ -32,6 +33,7 @@ function queryByTag(tagId, page, pageSize, success) {
     connection.end();
 }
 
+// 通过标签查询文章数量
 function queryByTagCount(tagId, success) {
     var insertSql = "select count(1) as count from tag_blog_mapping where tag_id = ?;";
     var params = [tagId];

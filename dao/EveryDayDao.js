@@ -1,5 +1,6 @@
 var dbutil = require("./DBUtil");
 
+// 新增每日一句
 function insertEveryDay(content, ctime, success) {
     var insertSql = "insert into every_day (`content`, `ctime`) values (?, ?)";
     var params = [content, ctime];
@@ -15,7 +16,7 @@ function insertEveryDay(content, ctime, success) {
     });
     connection.end();
 }
-
+// 查询每日一句
 function queryEveryDay(success) {
     var querySql = "select * from every_day order by id desc limit 1;";
     var params = [];

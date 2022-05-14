@@ -1,5 +1,6 @@
 var dbutil = require("./DBUtil");
 
+// 插入标签
 function insertTag(tag, ctime, utime, success) {
     var insertSql = "insert into tags (`tag`, `ctime`, `utime`) values (?, ?, ?)";
     var params = [tag, ctime, utime];
@@ -16,6 +17,7 @@ function insertTag(tag, ctime, utime, success) {
     connection.end();
 }
 
+// 查询标签列表
 function queyrTag(tag, success) {
     var insertSql = "select * from tags where tag = ?;";
     var params = [tag];
@@ -30,7 +32,7 @@ function queyrTag(tag, success) {
     });
     connection.end();
 }
-
+// 查询全部标签
 function queyrAllTag(success) {
     var insertSql = "select * from tags;";
     var params = [];
